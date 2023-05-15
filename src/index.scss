@@ -1,0 +1,131 @@
+@layer normalize, component, page;
+@layer normalize {
+    @import "~sass-reset";
+}
+
+@layer component {
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .fieldset {
+        max-width: 700px;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        border: none;
+        padding: 16px;
+        position: relative;
+
+        &__title {
+            font-size: 24px;
+        }
+    }
+
+    .field {
+        display: block;
+        width: 222px;
+        height: 44px;
+        border: 1px solid rgba(0, 0, 0, 0.23);
+        color: rgba(0, 0, 0, 0.6);
+        border-radius: 4px;
+        position: relative;
+        background-color: #ffffff;
+
+        &:focus-within {
+            color: rgb(0, 114, 229);
+            border: 2px solid rgb(0, 114, 229);
+        }
+
+        &__name {
+            display: inline-flex;
+            align-items: center;
+            margin-inline-start: 8px;
+            padding-inline: 4px;
+            position: absolute;
+            color: inherit;
+            top: 0%;
+            left: 0;
+            transform: translateY(-50%);
+            background-color: inherit;
+            font-size: 14px;
+            transition: 0.15s;
+        }
+
+        &__input,
+        &__output {
+            display: inline-flex;
+            align-items: center;
+            line-height: 100%;
+            width: 100%;
+            height: 100%;
+            padding-inline: 12px;
+            color: rgba(0, 0, 0, 0.87);
+
+            &::placeholder {
+                color: transparent;
+            }
+        }
+
+        &__input:placeholder-shown:not(:focus) + &__name,
+        &__output:empty + &__name {
+            top: 50%;
+            font-size: 16px;
+        }
+    }
+}
+
+@layer page {
+    body {
+        background-color: rgba(0, 0, 0, 0.15);
+    }
+
+    .page {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 8px;
+        padding: 8px;
+        align-items: center;
+        justify-items: center;
+
+        @media only screen and (min-width: 600px) {
+            gap: 16px;
+            padding: 16px;
+        }
+
+        @media only screen and (min-width: 992px) {
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            padding: 32px;
+        }
+
+        @media only screen and (min-width: 1200px) {
+            gap: 64px;
+            padding: 64px;
+        }
+
+        &__side {
+            width: 100%;
+            display: block;
+            background-color: rgb(255, 255, 255);
+            padding: 8px;
+            border-radius: 16px;
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+            @media only screen and (min-width: 600px) {
+                padding: 16px;
+            }
+
+            @media only screen and (min-width: 992px) {
+                gap: 32px;
+            }
+        }
+    }
+
+    .field {
+        flex-grow: 1;
+    }
+}

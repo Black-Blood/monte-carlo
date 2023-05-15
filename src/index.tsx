@@ -1,7 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 
-import './index.sass'
+import './index.scss'
+import App from './components/App'
 
 ReactDOM
     .createRoot(
@@ -9,5 +10,6 @@ ReactDOM
     )
     .render(
         <React.StrictMode>
+            <App />
         </React.StrictMode>
     )
